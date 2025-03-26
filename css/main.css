@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+}
+
+header {
+    background-color: lightgray;
+}
+
+main {
+    background-color: #FFEFD5;
+}
+
+footer {
+    background-color: darkgray;
+}
+
+h1 {
+    font-size: 32px !important;
+    font-weight: bold !important;
+}
+
+/* スライダーのコンテナ */
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative; /* インジケーターの基準位置 */
+  }
+  
+  /* スライダーの中身 */
+  .slider {
+    display: flex; /* 横並びにする */
+    transition: transform 0.5s ease-in-out; /* スムーズなスライドアニメーション */
+  }
+  
+  /* 各画像 */
+  .slider img {
+    width: 50%; /* PC画面で2枚表示 */
+    flex-shrink: 0; /* 画像サイズを固定 */
+  }
+  
+  /* スマホ用設定 */
+  @media screen and (max-width: 768px) {
+    .slider img {
+      width: 100%; /* スマホ画面では1枚表示 */
+    }
+  }
+  /* 左右のボタン */
+.prev-button, .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(200, 200, 200, 0.3);
+    color: blue;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .prev-button {
+    left: 10px;
+  }
+  
+  .next-button {
+    right: 10px;
+  }
+  
+  .prev-button:hover, .next-button:hover {
+    background-color: rgba(200, 200, 200, 0.6);
+  }
+  
+/* インジケーターのスタイル */
+.indicator-container {
+    display: flex;
+    justify-content: center;
+    position: absolute; /* 画像上に配置 */
+    bottom: 28px; /* 画像の下部に表示 */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* 画像より前面に表示 */
+  }
+  
+  .indicator-container button {
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.3);
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .indicator-container button.active {
+    background-color: blue; /* アクティブなインジケーターの色 */
+  } 
+
+/* 全体のバー */
+.progress-bar {
+    position: absolute; /* 親要素を基準に絶対配置 */
+    flex-direction: row;
+    bottom: 10px; /* スライダーの下部に配置 */
+    left: 50%; /* 横方向中央揃え */
+    transform: translateX(-50%); /* 完全に中央揃え */
+    width: 80%; /* バーの幅 */
+    height: 12px; /* バーの高さ */
+    border-radius: 6px;
+    object-fit: cover;
+    z-index: 10; /* 他の要素より前面に表示 */
+    background-color: rgba(0,0,0,0.3); /* バックグラウンド色 */
+  }
+  
+  
+  /* 各セグメント */
+  .progress-segment {
+    flex: 1; /* 等間隔に分割 */
+    height: 100%; /* 全体の高さに揃える */
+    border-radius: 6px;
+    transition: background-color 0.5s ease-in-out; /* 色の変化を滑らかに */
+  }
+  
+  /* アクティブ状態 */
+  .progress-segment.active {
+    background-color: blue; /* アクティブなセグメントの色 */
+  }
+  
+
+.img-container {
+    width: 100%;
+    padding-top: 100%;
+}
+
+.img-normal {
+    width: 100%;
+    height: auto;
+}
+
+.img-info {
+    width: 95%;
+    height: 95%;
+}
+
+.img-circle {
+    aspect-ratio: 1/1;
+    width: 75%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    border-radius: 50%;
+    /* 画像を丸くする */
+    object-fit: cover;
+    /* 画像の切り抜き */
+    object-position: 50% 50%;
+    /* 表示する位置 */
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity 1.5s linear, transform 1s linear !important;
+    /* transform: translateY(200px); */
+}
+
+.fade.show {
+    opacity: 1 !important;
+    /* transform: translateY(0); */
+}
+
+/*# sourceMappingURL=fade.css.map */
